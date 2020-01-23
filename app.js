@@ -26,6 +26,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(passport.initialize());
 app.use(passport.session());
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 app.get("/", (req, res)=>{
   // res.send("Welcome to Portal");
