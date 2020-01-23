@@ -1,4 +1,4 @@
-# BITS Pilani Complain Portal 
+# BITS Pilani Complaint Portal 
 Complaint Management System for BITS Pilani, Pilani Campus
 
 For running the application on a Linux system :- 
