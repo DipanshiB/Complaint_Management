@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const authRoutes = require('./routes/auth-routes');
-// const router = require('router');
+const keys = require('./config/keys');
+const passportSetup = require('./config/passport-setup')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -14,7 +15,9 @@ const server = http.createServer(function(req, res){
 
 app.use('/auth', authRoutes);
 
-mongoose.connect('mongodb+srv://DipanshiB:pinkathon@cluster0-fbdq0.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(keys.mongodb.dbURI, { useNewUrlParser: true }, ()=>{
+  console.log("Connected to Database");
+});
 let db = mongoose.connection;
 
 db.once('open', () => console.log('connected to the database'));
@@ -23,8 +26,8 @@ db.once('open', () => console.log('connected to the database'));
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 app.set('view engine', 'ejs');
 
 app.get("/", (req, res)=>{

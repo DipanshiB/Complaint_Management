@@ -1,5 +1,8 @@
-var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const passport = require('passport');
+// const GoogleStrategy = require('passport-google-oauth20');
+const keys = require('./keys');
+const User = require('../models/user');
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 // GET /auth/google
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in Google authentication will involve
@@ -11,11 +14,13 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 //   credentials (in this case, an accessToken, refreshToken, and Google
 //   profile), and invoke a callback with a user object.
 passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://www.example.com/auth/google/callback"
+    clientID: keys.google.clientID,
+    clientSecret: keys.google.clientSecret,
+    callbackURL: "/auth/google/redirect"
   },
-  function(accessToken, refreshToken, profile, done) {
+  function(accessToken, refreshToken, profile, openID, done) {
+    console.log(profile);
+    console.log(openID);
        User.findOrCreate({ googleId: profile.id }, function (err, user) {
          return done(err, user);
        });
