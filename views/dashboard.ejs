@@ -7,9 +7,17 @@
   </head>
   <body>
     <h1> Welcome <%= user.name %> </h1>
-
+    <div class="register_complaint">
+      <button type="button" name="button">Register A New Complaint</button>
+    </div>
     <div class="complaints">
-
+      <% user.complaints.forEach(function(complaint) { %>
+          <div class="complaint">
+            <p><%= complaint.title %></p>
+            <p>Complaint registered on : <%=complaint.timestamp%></p>
+            <button type="button" class="btn btn-success" name="button">Mark as Resolved</button>
+          </div>
+      <% }) %>
     </div>
 
     <div class="logout">

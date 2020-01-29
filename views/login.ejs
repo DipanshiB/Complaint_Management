@@ -1,3 +1,5 @@
+<%- include('./partials/messages') %>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -6,13 +8,11 @@
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.css">
   </head>
   <body>
-    <!-- <% include ('./partials/messages.ejs') %> -->
-
-    <div class="login">
-      <form class="form-control" action="/auth/login" method="POST">
-        <input type="text" name="campus_id" value="" placeholder="BITS Roll Number">
-        <input type="password" name="password" value="">
-        <button type="submit" name="button">Submit</button>
+    <div class="form-control">
+      <form action="/auth/login" method="POST">
+        <input type="text" name="campus_id" value="<%= typeof campus_id != 'undefined' ? campus_id : '' %>" placeholder="BITS Roll Number">
+        <input type="password" name="password" value="<%= typeof password != 'undefined' ? password : '' %>" placeholder="Password">
+        <button type="submit" class="btn btn-secondary" name="submit">Submit</button>
       </form>
     </div>
   </body>

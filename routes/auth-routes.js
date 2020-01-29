@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const passport = require('passport');
 const User = require('../models/user');
+const GoogleUser = require('../models/google_user');
 const bcrypt = require('bcryptjs');
 require('../config/passport-setup.js')(passport);
 //auth register
@@ -44,8 +45,8 @@ router.post('/register', (req,res)=>{
               newUser.password = hash;
               newUser.save()
                 .then(user => {
-                  // req.flash('success_msg', 'You are now registered and can log in.');
-                  res.redirect('/auth/login');
+                  req.flash('success_msg', 'You are now registered and can log in.');
+                  res.redirect('/dashboard');
                 })
                 .catch(err => console.log(err));
             })
@@ -53,9 +54,7 @@ router.post('/register', (req,res)=>{
           console.log(newUser);
         }
       });
-
   }
-  //
 
 
 })

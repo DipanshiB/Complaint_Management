@@ -30,9 +30,9 @@ mongoose.connect(keys.mongodb.dbURI, { useNewUrlParser: true, useUnifiedTopology
 // checks if connection with the database is successful
 // db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+app.set('view engine', 'ejs');
 
 app.use(expressLayouts);
-app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 app.use(session({

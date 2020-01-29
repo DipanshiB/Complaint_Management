@@ -2,6 +2,7 @@ const passport = require('passport');
 // const GoogleStrategy = require('passport-google-oauth20');
 const keys = require('./keys');
 const User = require('../models/user');
+const GoogleUser = require('../models/google_user');
 const LocalStrategy = require('passport-local').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
@@ -14,11 +15,11 @@ passport.use(new GoogleStrategy({
   },(accessToken, refreshToken, profile, done) => {
     console.log(profile);
     console.log("we reached here, now proceed to create a user");
-    new User({
-      username : profile.displayName,
+    new GoogleUser({
+      name : profile.displayName,
       googleId : profile.id
-    }).save().then((newUser) => {
-      console.log("new user created :" , newUser);
+    }).save().then((newGUser) => {
+      console.log("new Google user created :" , newGUser);
     });
   })
 );
@@ -46,6 +47,10 @@ module.exports = function(passport) {
 
   passport.serializeUser(function(user, done) {
     done(null, user.id);
+  });
+
+  passport.serializeUser(function(google_user, done) {
+    done(null, google_user.id);
   });
 
   passport.deserializeUser(function(id, done) {

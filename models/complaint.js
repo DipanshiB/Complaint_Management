@@ -6,7 +6,7 @@ const complaintSchema = new Schema({
   timestamp : {
    type : Date,
    default : Date.now
-  }
+ },
   id : String,
   votes : Number
 })
