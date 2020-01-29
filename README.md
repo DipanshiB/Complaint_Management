@@ -17,7 +17,7 @@ The users will also have the ability to upvote complaints they resonate with so 
 
 **Current Features :**
  - Homepage 
-  
+   ![Alt text](/Screenshots/img.jpg?raw=true "Title")
  - Users have the ability to register which leads them to their dashboard. (/auth/register API)
  - They can view their dashboard which has their registered complaints and also contains all registered complaints for the hostel and insitute level. 
  
