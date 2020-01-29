@@ -17,12 +17,13 @@ The users will also have the ability to upvote complaints they resonate with so 
 
 **Current Features :**
  - Homepage 
-   ![alt text](https://raw.githubusercontent.com/DipanshiB/BITS_Pilani-ComplaintPortal/master/Screenshots/Screenshot from 2020-01-29 20-51-27.png)
+   https://github.com/DipanshiB/BITS_Pilani-ComplaintPortal/blob/master/Screenshots/Screenshot%20from%202020-01-29%2020-51-27.png
   - Registration Form 
-   ![alt text](https://raw.githubusercontent.com/DipanshiB/BITS_Pilani-ComplaintPortal/master/Screenshots/Screenshot from 2020-01-29 20-52-10.png)
+   https://github.com/DipanshiB/BITS_Pilani-ComplaintPortal/blob/master/Screenshots/Screenshot%20from%202020-01-29%2020-52-10.png
   - Error Messages in case of invalid auth
-   ![]https://github.com/DipanshiB/BITS_Pilani-ComplaintPortal/blob/master/Screenshots/Screenshot%20from%202020-01-29%2020-53-21.png
- - They can view their dashboard which has their registered complaints and also contains all registered complaints for the hostel and insitute level. 
+   https://github.com/DipanshiB/BITS_Pilani-ComplaintPortal/blob/master/Screenshots/Screenshot%20from%202020-01-29%2020-53-21.png
+ - Dashboard
+   https://github.com/DipanshiB/BITS_Pilani-ComplaintPortal/blob/master/Screenshots/Screenshot%20from%202020-01-29%2021-43-45.png
  
 **What hasn't yet been added :**
  - Login with BITS Mail isn't working yet - this is largely due to the fact that Google has deprecated its G+ API used for third party authentication. Hence we have provided an option for manual registration and login in the app. 
