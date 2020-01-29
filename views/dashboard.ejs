@@ -9,13 +9,42 @@
     <h1> Welcome <%= user.name %> </h1>
     <div class="register_complaint">
       <button type="button" name="button">Register A New Complaint</button>
+      <!-- modal here for different levels -->
     </div>
-    <div class="complaints">
-      <% user.complaints.forEach(function(complaint) { %>
+    <div class="individual_complaints">
+      <% user.individual_complaints.forEach(function(complaint) { %>
           <div class="complaint">
             <p><%= complaint.title %></p>
             <p>Complaint registered on : <%=complaint.timestamp%></p>
             <button type="button" class="btn btn-success" name="button">Mark as Resolved</button>
+          </div>
+      <% }) %>
+    </div>
+    <div class="hostel_complaints">
+      <% hostel_complaints.forEach(function(complaint) { %>
+        <% if(user.hostel == complaint.hostel){ %>
+          <div class="complaint">
+            <p><%= complaint.title %></p>
+            <p>Complaint registered on : <%=complaint.timestamp%></p>
+            <% if(complaint.author.id.equals(user._id)){ %>
+              <form class="delete-form" action="/complaints/<%=complaint._id%>?_method=DELETE" method="post">
+                <button type="button" class="btn btn-success" name="button">Mark as Resolved</button>
+              </form>
+            <% } %>
+          </div>
+        <% } %>
+      <% }) %>
+    </div>
+    <div class="institute_complaints">
+      <% institute_complaints.forEach(function(complaint) { %>
+          <div class="complaint">
+            <p><%= complaint.title %></p>
+            <p>Complaint registered on : <%=complaint.timestamp%></p>
+            <% if(complaint.author.id.equals(user._id)){ %>
+              <form class="delete-form" action="/complaints/<%=complaint._id%>?_method=DELETE" method="post">
+                <button type="button" class="btn btn-success" name="button">Mark as Resolved</button>
+              </form>
+            <% } %>
           </div>
       <% }) %>
     </div>

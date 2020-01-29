@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const complaintSchema = new Schema({
+const instituteComplaintSchema = new Schema({
   title : String,
   timestamp : {
    type : Date,
@@ -14,9 +14,8 @@ const complaintSchema = new Schema({
   votes : {
     type : Number,
     default : 0
-  },
-  level : String
+  }
 })
 
-const Complaint = mongoose.model('complaint', complaintSchema);
-module.exports = Complaint;
+const InstituteComplaint = mongoose.model('institute_complaint', instituteComplaintSchema);
+module.exports = InstituteComplaint;

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const complaintSchema = new Schema({
+const hostelComplaintSchema = new Schema({
   title : String,
   timestamp : {
    type : Date,
@@ -15,8 +15,10 @@ const complaintSchema = new Schema({
     type : Number,
     default : 0
   },
-  level : String
+  hostel : String,
+  hrep : String,
+  warden : String
 })
 
-const Complaint = mongoose.model('complaint', complaintSchema);
-module.exports = Complaint;
+const HostelComplaint = mongoose.model('hostel_complaint', hostelComplaintSchema);
+module.exports = HostelComplaint;

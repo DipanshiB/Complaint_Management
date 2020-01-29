@@ -23,9 +23,20 @@ const userSchema = new Schema({
     required : true
   },
   // googleId : String,
-  complaints : [{
+  individual_complaints : [
+    {
     type : mongoose.Schema.Types.ObjectId,
-    ref : "Complaint"
+    ref : "IndividualComplaint"
+  }],
+  hostel_complaints : [
+    {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : "HostelComplaint"
+  }],
+  institute_complaints : [
+    {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : "InstituteComplaint"
   }]
   // name : String
   // campusId : String
