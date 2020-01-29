@@ -21,7 +21,7 @@ The users will also have the ability to upvote complaints they resonate with so 
   - Registration Form 
    ![alt text](https://raw.githubusercontent.com/DipanshiB/BITS_Pilani-ComplaintPortal/master/Screenshots/Screenshot from 2020-01-29 20-52-10.png)
   - Error Messages in case of invalid auth
-
+   ![]https://github.com/DipanshiB/BITS_Pilani-ComplaintPortal/blob/master/Screenshots/Screenshot%20from%202020-01-29%2020-53-21.png
  - They can view their dashboard which has their registered complaints and also contains all registered complaints for the hostel and insitute level. 
  
 **What hasn't yet been added :**
