@@ -11,8 +11,8 @@ The users will also have the ability to upvote complaints they resonate with so 
 **For running the application on a Linux system :-** 
  - clone the repository
  - cd into the cloned folder : BITS_Pilani_Complaint_Portal
- - run the command npm install. 
- - run node app.js
+ - run the command `npm install`. 
+ - run `node app.js`
  - open the chosen browser at the link - http://localhost:3000/
 
 **Current Features :**
