@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = require('../models/user');
 const Schema = mongoose.Schema;
 
 const hostelComplaintSchema = new Schema({

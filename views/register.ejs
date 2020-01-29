@@ -40,13 +40,13 @@
               <div class="col_half">
                 <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
                   <input type="text" name="room_num" value="<%= typeof room_num != 'undefined' ? room_num : '' %>"
-                    placeholder="Room" />
+                    placeholder="Room" required/>
                 </div>
               </div>
             </div>
             <div class="input_field select_option">
               <select name="hostel">
-                <option>Select Hostel</option>
+                <!-- <option>Select Hostel</option> -->
                 <option value="MR">Meera Bhawan</option>
                 <option value="RM">Ram Bhawan</option>
                 <option value="BD">Budh Bhawan</option>

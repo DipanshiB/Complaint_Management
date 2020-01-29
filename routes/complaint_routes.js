@@ -9,7 +9,7 @@ const InstituteComplaint = require('../models/institute_complaint');
 //INDIVIDUAL LEVEL
 
 //COMPLAINTS POST ROUTE
-router.post('/complaints/individual/new', function(req, res){
+router.post('complaints/individual/new', function(req, res){
   User.findById(req.user.id, function(err, user){
     if(err){
       console.log(err);
@@ -37,7 +37,7 @@ router.post('/complaints/individual/new', function(req, res){
 //HOSTEL LEVEL
 
 //COMPLAINTS POST ROUTE
-router.post('/complaints/hostel/new', function(req, res){
+router.post('/hostel/new', function(req, res){
   User.findById(req.user.id, function(err, user){
     if(err){
       console.log(err);
@@ -88,8 +88,10 @@ router.post('/complaints/institute/new', function(req, res){
 //GENERAL COMPLAINT ROUTES
 
 //NEW COMPLAINT REG FORM
-router.get('/complaint/:level/new', (req,res) => {
-  User.findById(req.user.id, (err, user) => {
+router.get('/:level/new', (req,res) => {
+  console.log(req);
+  console.log(req.user);
+  User.findById(req.user._id, (err, user) => {
     if(err) console.log(err);
     else{
       res.render('complaint_form', {user : user});

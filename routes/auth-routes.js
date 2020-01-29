@@ -47,7 +47,10 @@ router.post('/register', (req,res)=>{
                 .then(user => {
                   req.flash('success_msg', 'You are now registered and can log in.');
                   res.status(200).render('dashboard', {
-                    user : user
+                    user : user,
+                    hostel_complaints : [],
+                    individual_complaints : [],
+                    institute_complaints : []
                   });
                 })
                 .catch(err => console.log(err));
