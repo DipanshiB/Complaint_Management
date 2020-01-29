@@ -26,8 +26,8 @@ passport.use(new GoogleStrategy({
 
 module.exports = function(passport) {
   passport.use(
-    new LocalStrategy((campus_id, password, done) => {
-      User.findOne({campus_id : campus_id})
+    new LocalStrategy((id, password, done) => {
+      User.findById(id, (err, user)=> {if(err) {console.log(err)}})
        .then(user => {
          if(!user) {
            return done(null, false, {message : 'Not registered'});

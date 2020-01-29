@@ -2,44 +2,83 @@
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>BITS Pilani Complaint Portal</title>
-    <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.css">
 
-  </head>
-  <body>
-    <div class="Register">
-      <h2>Register</h2>
+<head>
+  <meta charset="utf-8">
+  <title>BITS Pilani Complaint Portal</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/register.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-      <div class="form-control">
-        <form action="/auth/register" method="POST">
-          <input type="name" id ="name" name="name" class="form_control" value = "<%= typeof name != 'undefined' ? name : '' %>" placeholder="Name" />
-          <input type="text" name="campus_id" class="form_control" value = "<%= typeof campus_id != 'undefined' ? campus_id : '' %>" placeholder="BITS Campus Id" />
-          <select name="hostel" placeholder="Hostel">
-            <option value="MR">Meera Bhawan</option>
-            <option value="RM">Ram Bhawan</option>
-            <option value="BD">Budh Bhawan</option>
-            <option value="GN">Gandhi Bhawan</option>
-            <option value="KR">Krishna Bhawan</option>
-            <option value="AS">Ashok Bhawan</option>
-            <option value="RP">Rana Pratap Bhawan</option>
-            <option value="VK">Vishwakarma Bhawan</option>
-            <option value="MALA">Malviya A</option>
-            <option value="MALB">Malviya B</option>
-            <option value="MALC">Malviya C</option>
-            <option value="BG">Bhagirath Bhawan</option>
-            <option value="SK">Shankar Bhawan</option>
-            <option value="VY">Vyas Bhawan</option>
-          </select>
-          <input type="number" name="room_num" value="<%= typeof room_num != 'undefined' ? room_num : '' %>" placeholder="Room Number">
-          <input type="password" name="password" value="<%= typeof password != 'undefined' ? password : '' %>" placeholder="Password" />
-          <button type="submit" class= "btn btn-primary btn-block" name="submit">Register</button>
-        </form>
+</head>
+
+<body>
+  <div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Registration Form</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form action="/auth/register" method="POST">
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <input type="text" id="name" name="name" value="<%= typeof name != 'undefined' ? name : '' %>"
+                placeholder="Name" required />
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+              <input type="text" name="campus_id" value="<%= typeof campus_id != 'undefined' ? campus_id : '' %>"
+                placeholder="BITS Campus ID" required />
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              <input type="password" name="password" value="<%= typeof password != 'undefined' ? password : '' %>"
+                placeholder="Password" required />
+            </div>
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" name="room_num" value="<%= typeof room_num != 'undefined' ? room_num : '' %>"
+                    placeholder="Room" />
+                </div>
+              </div>
+            </div>
+            <div class="input_field select_option">
+              <select name="hostel">
+                <option>Select Hostel</option>
+                <option value="MR">Meera Bhawan</option>
+                <option value="RM">Ram Bhawan</option>
+                <option value="BD">Budh Bhawan</option>
+                <option value="GN">Gandhi Bhawan</option>
+                <option value="KR">Krishna Bhawan</option>
+                <option value="AS">Ashok Bhawan</option>
+                <option value="RP">Rana Pratap Bhawan</option>
+                <option value="VK">Vishwakarma Bhawan</option>
+                <option value="MALA">Malviya A</option>
+                <option value="MALB">Malviya B</option>
+                <option value="MALC">Malviya C</option>
+                <option value="BG">Bhagirath Bhawan</option>
+                <option value="SK">Shankar Bhawan</option>
+                <option value="VY">Vyas Bhawan</option>
+              </select>
+              <div class="select_arrow"></div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" name="submit">Register</button>
+          </form>
+        </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>

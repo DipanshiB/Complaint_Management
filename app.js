@@ -54,7 +54,7 @@ app.get("/", (req, res)=>{
   res.render('home');
 });
 
-app.get("/dashboard", (req, res) => {
+app.get("/dashboard/:id", (req, res) => {
   res.render('dashboard');
 })
 
