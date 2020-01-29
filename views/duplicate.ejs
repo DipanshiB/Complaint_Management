@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+
+      <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <title>Dashboard</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+            <link rel="stylesheet" href="css/main.css">
+          </head>
+          <body>
+            <aside class="side-nav" id="show-side-navigation1">
+              <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+              <div class="heading">
+                <img src="https://images.unsplash.com/photo-1519750783826-e2420f4d687f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="">
+                <div class="info">
+                  <h3><a href="#"><%= user.name %></a></h3>
+                  <p><%= user.campus_id %></p>
+                </div>
+              </div>
+              
+              <ul class="categories">
+               
+               <li><i class="fa fa-envelope-open-o fa-fw"></i><a href="/complaints/individual/new"> New Individual Complaint</a></li>
+                <li><i class="fa fa-comments-o fa-fw"></i><a href="/complaints/hostel/new"> New Hostel Complaint </a></li>
+                <li><i class="fa fa-laptop fa-fw"></i><a href="/complaints/institute/new"> New Institute Complaint</a></li>
+                <li><i class="fa fa-comments-o fa-fw"></i><a href="/auth/logout"> Logout </a></li>
+              </ul>
+            </aside>
+            <section id="contents">
+             
+              <div class="welcome">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="content">
+                        <h2>Welcome <%= user.name %></h2>
+                        <p>You can view your registered complaints and everyone's complaints regarding institute and hostel here.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <section class="statistics">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="box" style="height: 700px;">
+                        <i class="fa fa-envelope fa-fw bg-primary"></i>
+                        <div class="info">
+                          <h3>Individual</h3> <span>Level</span>
+                          <p>Lorem ipsum dolor sit amet</p>
+                          <div class="individual_complaints">
+                              <% user.individual_complaints.forEach(function(complaint) { %>
+                                  <div class="complaint">
+                                    <p><%= complaint.title %></p>
+                                    <p>Complaint registered on : <%=complaint.timestamp%></p>
+                                    <button type="button" class="btn btn-success" name="button">Mark as Resolved</button>
+                                  </div>
+                              <% }) %>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="box" style="height: 700px;">
+                        <i class="fa fa-file fa-fw danger"></i>
+                        <div class="info">
+                          <h3>Hostel</h3> <span>Level</span>
+                          <p>Lorem ipsum dolor sit amet</p>
+                           
+                      <div class="hostel_complaints">
+                          <% hostel_complaints.forEach(function(complaint) { %>
+                            <% if(user.hostel == complaint.hostel){ %>
+                              <div class="complaint">
+                                <p><%= complaint.title %></p>
+                                <p>Complaint registered on : <%=complaint.timestamp%></p>
+                                <% if(complaint.author.id.equals(user._id)){ %>
+                                  <form class="delete-form" action="/complaints/"+<%= complaint._id %>+"?_method=DELETE" method="post">
+                                    <button type="button" class="btn btn-success" name="button">Mark as Resolved</button>
+                                  </form>
+                                <% } %>
+                              </div>
+                            <% } %>
+                          <% }) %>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="box" style="height: 700px;"> 
+                        <i class="fa fa-users fa-fw success"></i>
+                        <div class="info">
+                          <h3>College</h3> <span>Level</span>
+                          <p>Lorem ipsum dolor sit amet</p>
+                          <div class="institute_complaints">
+                                  <div class="complaint">
+                                    <p><%= complaint.title %></p>
+                                    <p>Complaint registered on : <%=complaint.timestamp%></p>
+                                    <% if(complaint.author.id.equals(user._id)){ %>
+                                      <form class="delete-form" action="/complaints/"+<%= complaint._id%>+"?_method=DELETE" method="post">
+                                        <button type="button" class="btn btn-success" name="button">Mark as Resolved</button>
+                                      </form>
+                                    <% } %>
+                                  </div>
+                              <% }) %>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="charts">
+               
+              </section>
+              <section class="admins">
+               
+                </section>
+                <section class="chrt3">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-9">
+                        <div class="chart-container">
+                          <canvas id="chart3" width="100%"></canvas>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="box">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </section>
+              <script src='http://code.jquery.com/jquery-latest.js'></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+              
+              </body>
+            </html>
+        
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html> 

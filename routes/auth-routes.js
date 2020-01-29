@@ -46,8 +46,11 @@ router.post('/register', (req,res)=>{
               newUser.save()
                 .then(user => {
                   req.flash('success_msg', 'You are now registered and can log in.');
-                  res.render('dashboard', {
-                    user : user
+                  res.status(200).render('dashboard', {
+                    user : user,
+                    hostel_complaints : [],
+                    individual_complaints : [],
+                    institute_complaints : []
                   });
                 })
                 .catch(err => console.log(err));
@@ -65,13 +68,26 @@ router.get('/login', (req,res)=>{
   res.render('login');
 })
 
-router.post('/login', (req, res, next) => {
-  passport.authenticate('local', {
-    successRedirect : '/dashboard',
-    failureRedirect : '/',
-    failureFlash : true
+// router.post('/login', (req, res, next) => {
+//   passport.authenticate('local', {
+//     successRedirect : '/dashboard',
+//     failureRedirect : '/',
+//     failureFlash : true
+//   })(req, res, next);
+// })
+
+router.post('/login', function(req, res, next){
+  passport.authenticate('local', function(err, user, info){
+    if(err) { console.log(err); }
+    if(!user) { console.log("user doesn't exist");}
+    req.logIn(user, function(err){
+      if(err) {return next(err);}
+      return res.redirect('/dashboard/' + user.campus_id);
+    });
   })(req, res, next);
 })
+
+
 //auth logout
 router.get('/logout', (req, res)=>{
   req.logout();

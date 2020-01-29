@@ -27,7 +27,9 @@ passport.use(new GoogleStrategy({
 module.exports = function(passport) {
   passport.use(
     new LocalStrategy((campus_id, password, done) => {
-      User.findOne({campus_id : campus_id})
+      User.findOne({campus_id : campus_id}, function(err, user){
+        if(err) return done(err);
+      }
        .then(user => {
          if(!user) {
            return done(null, false, {message : 'Not registered'});
@@ -41,7 +43,7 @@ module.exports = function(passport) {
            }
          })
        })
-       .catch(err => console.log(err));
+       .catch(err => console.log(err)));
     })
   );
 
