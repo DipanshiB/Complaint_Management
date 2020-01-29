@@ -23,12 +23,6 @@ mongoose.connect(keys.mongodb.dbURI, { useNewUrlParser: true, useUnifiedTopology
 });
   // .then(()=>console.log("Connected to Database"))
   // .catch(err => console.log("Database ERROR :" + err));
-// let db = mongoose.connection;
-
-// db.once('open', () => console.log('connected to the database'));
-
-// checks if connection with the database is successful
-// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.set('view engine', 'ejs');
 
