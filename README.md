@@ -16,12 +16,12 @@ The users will also have the ability to upvote complaints they resonate with so 
  - open the chosen browser at the link - http://localhost:3000/
 
 **Current Features :**
- - Users have the ability to register which leads them to their dashboard. (/register API)
- - 
+ - Users have the ability to register which leads them to their dashboard. (/auth/register API)
+ - They can view their dashboard which has their registered complaints and also contains all registered complaints for the hostel and insitute level. 
  
 **What hasn't yet been added :**
- - Login with BITS Mail isn't working yet - this is largely due to the fact that Google has deprecated its G+ API used for        third party authentication. Hence we have provided an option for manual registration and login in the app. 
+ - Login with BITS Mail isn't working yet - this is largely due to the fact that Google has deprecated its G+ API used for third party authentication. Hence we have provided an option for manual registration and login in the app. 
  - We have not yet added in the functionality for reminder mails to the Warden and Superintendent.
- - Getting access to the Student's Union database will lead to easier login for BITS students since their details like room        number and hostel shall be automatically updated. 
+ - Getting access to the Student's Union database will lead to easier login for BITS students since their details like room number and hostel shall be automatically updated. 
  - Warden and Superintendent contacts shall also be updated only once we have access to that database. 
 
