@@ -26,8 +26,6 @@ The users will also have the ability to upvote complaints they resonate with so 
    https://github.com/DipanshiB/BITS_Pilani-ComplaintPortal/blob/master/Screenshots/Screenshot%20from%202020-01-29%2021-43-45.png
  
 **What hasn't yet been added :**
- - Login with BITS Mail isn't working yet - this is largely due to the fact that Google has deprecated its G+ API used for third party authentication. Hence we have provided an option for manual registration and login in the app. 
- - We have not yet added in the functionality for reminder mails to the Warden and Superintendent.
  - Getting access to the Student's Union database will lead to easier login for BITS students since their details like room number and hostel shall be automatically updated. 
  - Warden and Superintendent contacts shall also be updated only once we have access to that database. 
 
